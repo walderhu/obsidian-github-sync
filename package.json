@@ -1,6 +1,6 @@
 {
   "name": "obsidian-github-sync",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "build": "tsc --noEmit && esbuild src/main.ts --bundle --external:obsidian --format=cjs --platform=browser --target=es2020 --outfile=main.js",
