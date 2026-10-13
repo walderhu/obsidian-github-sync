@@ -155,7 +155,7 @@ export default class GitHubVaultSyncPlugin extends Plugin {
 	}
 
 	private async readRemoteTree(): Promise<{ commitSha: string; files: Record<string, string> }> {
-		const ref = await this.github<GitHubRefResponse>(`/repos/${this.settings.owner}/${this.settings.repository}/git/refs/heads/${encodeURIComponent(this.settings.branch)}`);
+		const ref = await this.github<GitHubRefResponse>(`/repos/${this.settings.owner}/${this.settings.repository}/git/ref/heads/${encodeURIComponent(this.settings.branch)}`);
 		const commitData = await this.github<GitHubCommitResponse>(`/repos/${this.settings.owner}/${this.settings.repository}/git/commits/${ref.object.sha}`);
 		const tree = await this.github<GitHubTreeResponse>(`/repos/${this.settings.owner}/${this.settings.repository}/git/trees/${commitData.tree.sha}?recursive=1`);
 		if (tree.truncated) throw new Error("GitHub returned a truncated tree; split the vault or use a smaller repository.");

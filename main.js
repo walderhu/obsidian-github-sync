@@ -112,7 +112,7 @@ var GitHubVaultSyncPlugin = class extends import_obsidian.Plugin {
     return result;
   }
   async readRemoteTree() {
-    const ref = await this.github(`/repos/${this.settings.owner}/${this.settings.repository}/git/refs/heads/${encodeURIComponent(this.settings.branch)}`);
+    const ref = await this.github(`/repos/${this.settings.owner}/${this.settings.repository}/git/ref/heads/${encodeURIComponent(this.settings.branch)}`);
     const commitData = await this.github(`/repos/${this.settings.owner}/${this.settings.repository}/git/commits/${ref.object.sha}`);
     const tree = await this.github(`/repos/${this.settings.owner}/${this.settings.repository}/git/trees/${commitData.tree.sha}?recursive=1`);
     if (tree.truncated) throw new Error("GitHub returned a truncated tree; split the vault or use a smaller repository.");
