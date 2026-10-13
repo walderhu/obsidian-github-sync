@@ -1,0 +1,10 @@
+{
+  "id": "obsidian-github-sync",
+  "name": "GitHub Vault Sync",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Two-way GitHub synchronization for an Obsidian vault on desktop and mobile.",
+  "author": "walderhu",
+  "authorUrl": "https://github.com/walderhu",
+  "isDesktopOnly": false
+}
